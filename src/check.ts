@@ -67,6 +67,7 @@ export class CheckRunner {
     public tryPush(line: string): void {
         let contents: CargoMessage;
         try {
+            line = line.replace(/\\n/g, "\\n")
             contents = JSON.parse(line);
         } catch (error) {
             core.debug('Not a JSON, ignoring it');
